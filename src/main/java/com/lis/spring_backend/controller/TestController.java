@@ -19,62 +19,12 @@ import java.util.stream.Collectors;
 public class TestController {
 
     @Autowired
-    private PatientRepository patientRepository;
-
-    @Autowired
     private TestRepository testRepository;
-
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
-    @GetMapping("/find/{testCode}")
-    public List<Test> findAllByTestCode(@PathVariable String testCode) {
-        return testRepository.findAllByCfg(testCode);
-    }
-
- /*   @GetMapping("/find")
-    public Page<Test> findAllByCfg(Pageable pageable) {
-        return testRepository.findAll(pageable);
-    }*/
-
-/*
-    @GetMapping("/find")
-    public Page<Test> findAll(Pageable pageable) {
-        return testRepository.findAll(pageable);
-    }
-*/
-
-    @GetMapping("/patients")
-    public Page<Patient> getPatients(Pageable pageable) {
-        return patientRepository.findAll(pageable);
-    }
 
     @GetMapping("/results")
     public Page<Test> getResults(Pageable pageable) {
         return testRepository.findAll(pageable);
     }
-
-    /*@GetMapping("/ams")
-    public List<TestRepository.X> getResults(Pageable Pageable) {
-        return testRepository.getResults(Pageable)
-                .stream()
-                .map(x -> {
-                    return new TestRepository.X(
-                            x[0],
-                            x[1],
-                            x[2],
-                            x[3],
-                            x[4],
-                            x[5],
-                            x[6],
-                            x[7],
-                            x[8],
-                            x[9],
-                            x[10]
-                    );
-                })
-                .collect(Collectors.toList());
-    }*/
 
     @GetMapping("/report2")
     public List<TestRepository.X2> getResults2() {
@@ -107,4 +57,56 @@ public class TestController {
                 })
                 .collect(Collectors.toList());
     }
+
+
+    /*
+
+    private static final String template = "Hello, %s!";
+    private final AtomicLong counter = new AtomicLong();
+
+
+    @GetMapping("/find/{testCode}")
+    public List<Test> findAllByTestCode(@PathVariable String testCode) {
+        return testRepository.findAllByCfg(testCode);
+    }
+
+    @GetMapping("/find")
+    public Page<Test> findAllByCfg(Pageable pageable) {
+        return testRepository.findAll(pageable);
+    }
+
+    @GetMapping("/find")
+    public Page<Test> findAll(Pageable pageable) {
+        return testRepository.findAll(pageable);
+    }
+
+    @GetMapping("/patients")
+    public Page<Patient> getPatients(Pageable pageable) {
+        return patientRepository.findAll(pageable);
+    }
+
+
+
+    @GetMapping("/ams")
+    public List<TestRepository.X> getResults(Pageable Pageable) {
+        return testRepository.getResults(Pageable)
+                .stream()
+                .map(x -> {
+                    return new TestRepository.X(
+                            x[0],
+                            x[1],
+                            x[2],
+                            x[3],
+                            x[4],
+                            x[5],
+                            x[6],
+                            x[7],
+                            x[8],
+                            x[9],
+                            x[10]
+                    );
+                })
+                .collect(Collectors.toList());
+    }*/
+
 }

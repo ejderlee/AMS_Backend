@@ -18,19 +18,22 @@ import java.util.Date;
 public class Test {
 
     @Id
-    private String requestcode;
-    private String testcode;
-    private String resultvalue;
-    private String prevresultvalue;
-    private String resultflag;
-    private String status;
-    private String analyser;
-    private Date datetimeresult;
-    private Integer normlow;
-    private Integer normhigh;
-    private String wono;
+    private String requestCode;
+    private String testCode;
     private String shortdesc;
-    private String cdqfault;
+
+    /*
+    private Date datetimeresult;
+    private String wono;
     private Integer rerunflag;
     private String unit;
+    private String analyser;
+    private Integer normlow;
+    private Integer normhigh;
+    private String cdqfault;
+    private String status;
+    private String resultflag;
+    private String prevResultValue;
+    private String resultValue;
+ */
 }

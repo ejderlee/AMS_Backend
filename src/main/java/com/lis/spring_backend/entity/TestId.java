@@ -8,83 +8,97 @@ import java.util.Date;
 
 @Data
 public class TestId implements Serializable {
-    @Column(name = "REQUESTCODE")
-    private String requestcode;
+    @Column(name = "REQUESTCODE",nullable=true)
+    private String requestCode;
 
-    @Column(name = "TESTCODE")
-    private String testcode;
+    @Column(name = "TESTCODE",nullable=true)
+    private String testCode;
 
-    @Column(name = "RESULTVALUE")
-    private String resultvalue;
+    @Column(name = "SHORTDESC",nullable=true)
+    private String shortdesc;
 
-    @Column(name = "PREVRESULTVALUE")
-    private String prevresultvalue;
+    /*
 
-    @Column(name = "RESULTFLAG")
-    private Integer resultflag;
+
+
+    @Column(name = "DATETIMERESULT",nullable=true)
+    private Date datetimeresult;
+
+    @Column(name = "WONO",nullable=true)
+    private String wono;
+
+    @Column(name = "RERUN_FLAG",nullable=true)
+    private Integer rerunflag;
+
+    @Column(name = "UNIT",nullable=true)
+    private String unit;
+
+    @Column(name = "ANALYSER",nullable=true)
+    private String analyser;
+
+    @Column(name = "NORMLOW",nullable=true)
+    private Integer normlow;
+
+    @Column(name = "NORMHIGH",nullable=true)
+    private Integer normhigh;
+
+    @Column(name = "CDQFAULT",nullable=true)
+    private String cdqfault;
 
     @Column(name = "STATUS")
     private Integer status;
 
-    @Column(name = "ANALYSER")
-    private String analyser;
+    @Column(name = "RESULTFLAG")
+    private Integer resultflag;
 
-    @Column(name = "DATETIMERESULT")
-    private Date datetimeresult;
+    @Column(name = "RESULTVALUE")
+    private String resultValue;
 
-    @Column(name = "NORMLOW")
-    private Integer normlow;
+    @Column(name = "PREVRESULTVALUE")
+    private String prevResultValue;
 
-    @Column(name = "NORMHIGH")
-    private Integer normhigh;
-
-    @Column(name = "WONO")
-    private String wono;
-
-    @Column(name = "SHORTDESC")
-    private String shortdesc;
-
-    @Column(name = "CDQFAULT")
-    private String cdqfault;
-
-    @Column(name = "RERUN_FLAG")
-    private Integer rerunflag;
-
-    @Column(name = "UNIT")
-    private String unit;
+    */
 
 
     public TestId(
-            String requestcode,
-            String testcode,
-            String resultvalue,
-            String prevresultvalue,
-            Integer resultflag,
-            Integer status,
-            String analyser,
+            String requestCode,
+            String testCode,
+            String shortdesc
+
+            /*
+
             Date datetimeresult,
+            String wono,
+            Integer rerunflag,
+            String unit
+            String analyser,
+            String cdqfault,
             Integer normlow,
             Integer normhigh,
-            String wono,
-            String shortdesc,
-            String cdqfault,
-            Integer rerunflag,
-            String unit) {
-        this.requestcode = requestcode;
-        this.testcode = testcode;
-        this.resultvalue = resultvalue;
-        this.prevresultvalue = prevresultvalue;
-        this.resultflag = resultflag;
-        this.status = status;
-        this.analyser = analyser;
-        this.datetimeresult = datetimeresult;
-        this.normlow = normlow;
-        this.normhigh = normhigh;
-        this.wono = wono;
+            Integer status,
+            Integer resultflag,
+            String prevResultValue,
+            String resultValue,
+            */) {
+        this.requestCode = requestCode;
+        this.testCode = testCode;
         this.shortdesc = shortdesc;
-        this.cdqfault = cdqfault;
+
+        /*
+
+        this.datetimeresult = datetimeresult;
+        this.wono = wono;
         this.rerunflag = rerunflag;
         this.unit = unit;
+        this.analyser = analyser;
+        this.normlow = normlow;
+        this.normhigh = normhigh;
+        this.cdqfault = cdqfault;
+        this.status = status;
+        this.resultflag = resultflag;
+        this.prevResultValue = prevResultValue;
+        this.resultValue = resultValue;
+        */
     }
 
     public TestId() {
