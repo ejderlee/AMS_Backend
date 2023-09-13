@@ -21,24 +21,64 @@ public class TestController {
     @Autowired
     private TestRepository testRepository;
 
+
+    @GetMapping("/results={patientID}")
+    public Page<TestRepository.Results> getPatients(@PathVariable String patientID, Pageable pageable) {
+        return testRepository.getResults(patientID, pageable)
+                .map(x -> {
+                    return new TestRepository.Results(
+                            x[0],
+                            x[1],
+                            x[2]
+                    );
+                });
+    }
+
+}
+
+
+/*
+
+
+ */
+/*
     @GetMapping("/results")
     public Page<Test> getResults(Pageable pageable) {
         return testRepository.findAll(pageable);
     }
+*//*
 
-    @GetMapping("/report2")
-    public List<TestRepository.X2> getResults2() {
-        return testRepository.getResults2()
-                .stream()
+
+    @GetMapping("/ams")
+    public Page<TestRepository.X> getResults(Pageable pageable) {
+        return testRepository.getResults(pageable)
                 .map(x -> {
-                    return new TestRepository.X2(
+                    return new TestRepository.X(
                             x[0],
                             x[1],
                             x[2],
-                            x[3]
+                            x[3],
+                            x[4],
+                            x[5],
+                            x[6],
+                            x[7],
+                            x[8],
+                            x[9],
+                            x[10],
+                            x[11],
+                            x[12],
+                            x[13],
+                            x[14],
+                            x[15],
+                            x[16],
+                            x[17],
+                            x[18],
+                            x[19],
+                            x[20],
+                            x[21],
+                            x[22]
                     );
-                })
-                .collect(Collectors.toList());
+                });
     }
 
     @GetMapping("/report3")
@@ -59,7 +99,6 @@ public class TestController {
     }
 
 
-    /*
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
@@ -85,8 +124,6 @@ public class TestController {
         return patientRepository.findAll(pageable);
     }
 
-
-
     @GetMapping("/ams")
     public List<TestRepository.X> getResults(Pageable Pageable) {
         return testRepository.getResults(Pageable)
@@ -107,6 +144,7 @@ public class TestController {
                     );
                 })
                 .collect(Collectors.toList());
-    }*/
+    }
 
 }
+*/
