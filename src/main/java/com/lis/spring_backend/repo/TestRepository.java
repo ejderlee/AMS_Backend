@@ -1,6 +1,7 @@
 package com.lis.spring_backend.repo;
 
 import com.lis.spring_backend.entity.Test;
+import jakarta.annotation.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,9 +30,83 @@ public interface TestRepository extends JpaRepository<Test, Long> {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Results {
-        private Object SHORTDESC;
+        private Object PREVRESULTVALUE;
+        private Object PREVRESULTDATE;
         private Object RESULTVALUE;
+        private Object RESULTFLAG;
+        private Object STATUS;
+        private Object DLFACTOR;
         private Object DEVICECODE;
+        private Object DATETIMERESULT;
+        private Object NORMLOW;
+        private Object NORMHIGH;
+        private Object WONO;
+        private Object SHORTDESC;
+        private Object VALIUSER;
+        private Object CDQFAULT;
+        private Object UNIT;
+        private Object RACKBARCODE_POS;
+        private Object RACK_LOCATION;
+        private Object SENT_TO_LIS_DATETIME
+
+
+
+
+
+
+
+
+
+
+                ;
+    }
+
+    @Query(value = " " +
+            " select " +
+            " COUNT(SRT.TESTCODE), " +
+            " SUM(ACTIVEINSTANCE - 1), " +
+            " SRT.SHORTDESC " +
+            " from SNAPREQUESTTEST SRT " +
+            " where SRT.RESULTVALUE is not null " +
+            " and SRT.NVAL = 1 " +
+            " and SRT.resultVALUE <> '******' " +
+            " and SRT.DEVICECODE <> 'QPL' " +
+            " group by SRT.SHORTDESC ",
+            nativeQuery = true
+    )
+    Page<Object[]> getTestNumbers(Pageable pageable);
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class TestNumbers {
+        private Object TESTCODE;
+        private Object ACTIVEINSTANCE;
+        private Object SHORTDESC;
+    }
+
+
+    @Query(value = " " +
+            " select " +
+            " COUNT(SRT.TESTCODE), " +
+            " SUM(ACTIVEINSTANCE - 1), " +
+            " SRT.SHORTDESC " +
+            " from SNAPREQUESTTEST SRT " +
+            " where SRT.RESULTVALUE is not null " +
+            " and SRT.NVAL = 1 " +
+            " and SRT.resultVALUE <> '******' " +
+            " and SRT.DEVICECODE <> 'QPL' " +
+            " group by SRT.SHORTDESC ",
+            nativeQuery = true
+    )
+    List<Object[]> getResults2();
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class X2 {
+        private Object TESTCODE;
+        private Object ACTIVEINSTANCE;
+        private Object SHORTDESC;
     }
 
 }

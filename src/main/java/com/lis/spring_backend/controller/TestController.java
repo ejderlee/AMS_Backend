@@ -27,11 +27,52 @@ public class TestController {
         return testRepository.getResults(patientID, pageable)
                 .map(x -> {
                     return new TestRepository.Results(
+                            x[3],
+                            x[4],
+                            x[5],
+                            x[6],
+                            x[7],
+                            x[8],
+                            x[12],
+                            x[13],
+                            x[27],
+                            x[28],
+                            x[30],
+                            x[34],
+                            x[53],
+                            x[61],
+                            x[78],
+                            x[92],
+                            x[93],
+                            x[111]
+                    );
+                });
+    }
+
+/*    @GetMapping("/testnumbers")
+    public Page<TestRepository.TestNumbers> getTestNumbers(Pageable pageable) {
+        return testRepository.getTestNumbers(pageable)
+                .map(x -> {
+                    return new TestRepository.TestNumbers(
                             x[0],
                             x[1],
                             x[2]
                     );
                 });
+    }*/
+
+    @GetMapping("/testnumbers")
+    public List<TestRepository.X2> getResults3() {
+        return testRepository.getResults2()
+                .stream()
+                .map(x -> {
+                    return new TestRepository.X2(
+                            x[0],
+                            x[1],
+                            x[2]
+                    );
+                })
+                .collect(Collectors.toList());
     }
 
 }
