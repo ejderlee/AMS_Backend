@@ -35,7 +35,7 @@ public interface TestRepository extends JpaRepository<Test, Long> {
         private Object RESULTVALUE;
         private Object RESULTFLAG;
         private Object STATUS;
-        private Object DLFACTOR;
+        private Object DLFFACTOR;
         private Object DEVICECODE;
         private Object DATETIMERESULT;
         private Object NORMLOW;
@@ -47,18 +47,7 @@ public interface TestRepository extends JpaRepository<Test, Long> {
         private Object UNIT;
         private Object RACKBARCODE_POS;
         private Object RACK_LOCATION;
-        private Object SENT_TO_LIS_DATETIME
-
-
-
-
-
-
-
-
-
-
-                ;
+        private Object SENT_TO_LIS_DATETIME;
     }
 
     @Query(value = " " +

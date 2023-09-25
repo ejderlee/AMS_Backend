@@ -41,9 +41,6 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
             " from SNAPREQUESTTEST t, SNAPREQUEST p " +
             " where p.REQUESTCODE=t.REQUESTCODE ", nativeQuery = true)
     Page<Object[]> getPatients(Pageable pageable);
-
-    //    Page<Test> getResults(Pageable pageable);
-
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -59,6 +56,31 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
         private Object REQUESTCODE;
         private Object TESTCODE;
         private Object SHORTDESC;
+    }
+
+    @Query(value = "" +
+            " select distinct" +
+            "   SNAPREQUEST.* " +
+            " from SNAPREQUEST ,SNAPREQUESTTEST  WHERE  SNAPREQUEST.REQUESTCODE=SNAPREQUESTTEST.REQUESTCODE and" +
+            " SNAPREQUESTTEST.RESULTVALUE  is not null", nativeQuery = true)
+    Page<Object[]> findPatients(Pageable pageable);
+
+
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class patientList {
+        private Object REQUESTCODE;
+        private Object DATETIMEREQ;
+        private Object REQUESTERCODE;
+        private Object PRIORITY;
+        private Object FIRSTNAME;
+        private Object LASTNAME;
+        private Object BIRTHDATE;
+        private Object SEX;
+        private Object REQUESTSTATUS;
+        private Object PATI_AGE;
     }
 
     @Query(value = "SELECT TI.MONTH,TI.CNT TESTADET,TI.RERUN,TABQC.NUMQC QCADET FROM\n" +

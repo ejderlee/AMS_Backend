@@ -9,28 +9,28 @@ import java.util.Date;
 @Data
 public class PatientId implements Serializable {
     @Column(name = "REQUESTCODE")
-    private String requestcode;
+    private String REQUESTCODE;
 
     @Column(name = "REQUESTERCODE")
-    private String requestercode;
+    private String REQUESTERCODE;
 
     @Column(name = "FIRSTNAME")
-    private String firstname;
+    private String FIRSTNAME;
 
     @Column(name = "LASTNAME")
-    private String lastname;
+    private String LASTNAME;
 
     @Column(name = "BIRTHDATE")
-    private Date birthdate;
+    private Date BIRTHDATE;
 
     @Column(name = "SEX")
-    private Integer sex;
+    private Integer SEX;
 
     @Column(name = "PATI_AGE")
-    private String patiage;
+    private String PATI_AGE;
 
     @Column(name = "DATETIMEREQ")
-    private Date datetime;
+    private Date DATETIMEREQ;
 
     public PatientId(
             String requestcode,
@@ -41,14 +41,14 @@ public class PatientId implements Serializable {
             Integer sex,
             String patiage,
             Date datetime) {
-        this.requestcode = requestcode;
-        this.requestercode = requestercode;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.birthdate = birthdate;
-        this.sex = sex;
-        this.patiage = patiage;
-        this.datetime = datetime;
+        this.REQUESTCODE = requestcode;
+        this.REQUESTERCODE = requestercode;
+        this.FIRSTNAME = firstname;
+        this.LASTNAME = lastname;
+        this.BIRTHDATE = birthdate;
+        this.SEX = sex;
+        this.PATI_AGE = patiage;
+        this.DATETIMEREQ = datetime;
     }
 
     public PatientId() {

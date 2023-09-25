@@ -21,13 +21,13 @@ import java.util.Date;
 public class Patient {
 
     @Id
-    private String requestcode;
-    private String requestercode;
-    private String firstname;
-    private String lastname;
-    private Date birthdate;
-    private Integer sex;
-    private String patiage;
-    private Date datetime;
+    private String REQUESTCODE;
+    private String REQUESTERCODE;
+    private String FIRSTNAME;
+    private String LASTNAME;
+    private Date BIRTHDATE;
+    private Integer SEX;
+    private String PATI_AGE;
+    private Date DATETIMEREQ;
 
 }

@@ -23,7 +23,7 @@ public class TestController {
 
 
     @GetMapping("/results={patientID}")
-    public Page<TestRepository.Results> getPatients(@PathVariable String patientID, Pageable pageable) {
+    public Page<TestRepository.Results> getResults(@PathVariable String patientID, Pageable pageable) {
         return testRepository.getResults(patientID, pageable)
                 .map(x -> {
                     return new TestRepository.Results(
